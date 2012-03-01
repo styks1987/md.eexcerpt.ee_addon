@@ -36,7 +36,12 @@ Class Md_eexcerpt {
 
     function md_eexcerpt()
     {
-        global $TMPL, $FNS;
+        //global $TMPL, $FNS;
+        global $FNS;
+        
+        // Making this work with EE 2.4
+        $this->EE =& get_instance();
+        $TMPL = $this->EE->TMPL;
 
     $stop_after = ( ! $TMPL->fetch_param('stop_after')) ? '500' :  $TMPL->fetch_param('stop_after');
     
